@@ -1,0 +1,16 @@
+Main idea of java script:
+  1. save the data
+  2. generate the html
+  3. make it interactive
+
+1. save the data: this means that you should save the data of the products such as image and text in the java script file.
+  data-structure: when you save your data inside variables in java script, then it is called as data structure.
+2. generating the html :
+  generate the html by putting all the variables in the respective postion where they need to go 
+
+  toFixed(): this is useful when you want to display decimals in the page ,
+  to fixed will conver the number to a string and then display the number according to the number that you have provided in the parameter:
+  EXAMPLE:
+    productscents=1090;
+    console,log((productscents/100).tofixed(2));
+     this will display the number with 2 decimal places after the decimal.

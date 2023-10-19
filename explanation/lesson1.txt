@@ -1,3 +1,9 @@
+personal idea to generate a html code in js:
+  1. create the html normally 
+  2. take the html and store in js 
+  3. take the requred data and store it in the variables in html .
+  4. target the html elelment in the js and then put out all the generated html in that using dom.
+
 Main idea of java script:
   1. save the data
   2. generate the html
@@ -14,3 +20,16 @@ Main idea of java script:
     productscents=1090;
     console,log((productscents/100).tofixed(2));
      this will display the number with 2 decimal places after the decimal.
+
+     the number in the parameter defines the number of the decimals that will be displayed on the screen.
+Data-attribute:
+1. is just another html attribute.
+2. allows us to attach any information to an element. 
+3. the data attribute has to start with the name data-
+and then you can write any name after that.
+4. the purose of the data attribute is that you can attach any data to the element such as a name or an image etc.
+
+dataSet:
+this property is used to get the value in the data attribute of the html tag.
+
+id: this is given so that we can identify the 

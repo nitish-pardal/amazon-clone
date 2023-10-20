@@ -8,7 +8,9 @@
   priceCents:1090,
 },];
 */
-import {cart} from '../data/cart.js'; //get the data from the cart 
+import { cart } from '../data/cart.js'; //get the data from the cart.js 
+import { products } from '../data/products.js'; // to get the data from the products.js
+
 let productsHTML="";
 products.forEach((product) =>{
   
@@ -65,12 +67,12 @@ products.forEach((product) =>{
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+document.querySelectorAll('.js-add-to-cart').forEach((button)=>{ //selects each button
   button.addEventListener('click',()=>{
    const productId = button.dataset.productId;
    let matchingItem;
 
-   cart.forEach((item)=>{
+   cart.forEach((item)=>{ // all the items in the cart
     if(item.productId === productId){
       matchingItem = item; 
     }

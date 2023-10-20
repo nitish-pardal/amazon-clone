@@ -8,6 +8,7 @@
   priceCents:1090,
 },];
 */
+import {cart} from '../data/cart.js'; //get the data from the cart 
 let productsHTML="";
 products.forEach((product) =>{
   

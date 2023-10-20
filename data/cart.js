@@ -29,7 +29,7 @@ export function addToCart(productId){
   }else{
    cart.push({
      productId : productId,
-     quantity:1
+     quantity: quantity
    });
   }
 
@@ -48,3 +48,14 @@ export function removeFromCart(productId){
 
   saveToStorage();
 }
+
+export function calculateCartQuantity(){
+    let cartQuantity =0;
+    cart.forEach((cartitem) =>{
+     cartQuantity+=cartitem.quantity;
+    });
+ 
+   
+    return cartQuantity;
+ }
+ 

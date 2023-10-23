@@ -1,4 +1,9 @@
 external Libraries:
   these are just some java script code that is written by some one else and we import the code to be used in our own project and this is known as external Libraries.
+first we need to load the file that we need to import from the internet and then import the file that is on the internet.
 
-  
+Why we use external libraries .
+a. save time and save resources and time .
+Dayjs is an external library that helps us to work with the dates. 
+
+note : when you need to do something complicated then try to find an external library for the work that you have to do.

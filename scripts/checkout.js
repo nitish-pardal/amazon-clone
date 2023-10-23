@@ -5,6 +5,10 @@ let cartSummaryHTML="";
 
 let cartQuantity = calculateCartQuantity();
 
+hello();
+const today= (dayjs());
+const deliveryDate = today.add(7,'days');
+console.log(deliveryDate.format('dddd, MMMM D'));
 document.querySelector('.js-cart-quantity-header').innerHTML =`${cartQuantity} items`;
   
 

@@ -8,8 +8,11 @@
   priceCents:1090,
 },];
 */
-import { cart } from '../data/cart.js'; //get the data from the cart.js 
+import { cart , addToCart ,calculateCartQuantity} from '../data/cart.js'; //get the data from the cart.js 
+import { formatCurrency } from './utils/money.js';
 import { products } from '../data/products.js'; // to get the data from the products.js
+let cartQuantity=calculateCartQuantity();
+document.querySelector('.js-cart-quantity').innerHTML =cartQuantity;
 
 let productsHTML="";
 products.forEach((product) =>{
@@ -34,11 +37,11 @@ products.forEach((product) =>{
   </div>
 
   <div class="product-price">
-    $${(product.priceCents /100).toFixed(2)}
+    $${formatCurrency(product.priceCents )}
   </div>
 
-  <div class="product-quantity-container">
-    <select>
+  <div class="product-quantity-container js-product-quantity-container">
+    <select class="js-product-quantity-${product.id}">
       <option selected value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -65,42 +68,19 @@ products.forEach((product) =>{
 </div>`;
 });
 
-document.querySelector('.js-products-grid').innerHTML = productsHTML;
-
-function addToCart(productId){
-
-  let matchingItem;
-
-  cart.forEach((item)=>{ // all the items in the cart
-   if(item.productId === productId){
-     matchingItem = item; 
-   }
- });
-  
-  if(matchingItem){
-   matchingItem.quantity +=1;
-  }else{
-   cart.push({
-     productId : productId,
-     quantity:1
-   });
-  }
-}
-
-function updateCartQuantity(){
-  let cartQuantity =0;
-   cart.forEach((item) =>{
-    cartQuantity+=item.quantity;
-   });
-
-   document.querySelector('.js-cart-quantity').innerHTML =cartQuantity;
-}
+document.querySelector('.js-products-grid').innerHTML=productsHTML;
 
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{ //selects each button
   button.addEventListener('click',()=>{
     const productId = button.dataset.productId;
-    addToCart(productId);
-    updateCartQuantity();
+    
+
+   
+  addToCart(productId);
+  cartQuantity = calculateCartQuantity();
+  
+  document.querySelector('.js-cart-quantity').innerHTML =cartQuantity;
+  
   });
  });
   

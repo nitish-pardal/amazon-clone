@@ -1,0 +1,4 @@
+external Libraries:
+  these are just some java script code that is written by some one else and we import the code to be used in our own project and this is known as external Libraries.
+
+  

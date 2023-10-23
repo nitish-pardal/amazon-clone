@@ -1,0 +1,42 @@
+Modules:
+  this is a better way to organize our code.
+there is a problem that occurs when we are writing the script file one by one ,
+
+The problem is called as Naming conflict:
+a variable that has already been defined in one of the files could not be declard again and will cause problems in the future.
+
+for this we use Modules:
+in Modules the variable is contained in one file and its scope is not in any other file.
+
+Get a variable out of a file or module :
+1. Add type=" module " atrribute
+2. export
+3. import
+
+add type=module to the class where you want to acces the variable from the other file.
+then add export infront of the variable that you want to export .
+then write import with the variable that you want to access.
+EXAMPLE :
+
+ <script type="module" src="scripts/amazon.js"></script> // this is in the amazon.html file 
+
+export const cart = []; // this is in the cart.js file.
+
+improt{cart} from '../data/cart'; // this is written in the amazon.js file .
+
+note: 1. we need to put all the imports at the top of the file for the modules to work.
+2. we need live server to work with the modules.
+
+Benifits of Modules:
+ 1. it prevents naming conflicts.
+    you can also rename a variable when you import is :
+    import {cart as myCart} from '../data/cart.js'
+2. we don not have to worry about the order of files   in the script tag.
+
+NOTE: IMPORT CAN IMPORT MULTIPLE THINGS IN THE SAME STATEMENT FROM THE SAME FILE .
+EXAMPLE:
+
+import { cart , addToCart } from '../data/cart.js'; //get the data from the cart.js 
+
+
+

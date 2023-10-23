@@ -7,3 +7,17 @@ a. save time and save resources and time .
 Dayjs is an external library that helps us to work with the dates. 
 
 note : when you need to do something complicated then try to find an external library for the work that you have to do.
+
+use external libraries with modules: for this we need special kind of java-script library called as an esm version of the library (ecmaScript Module).
+esm version : is just a version of the java-Script that works with the modules.
+
+To use the modules along with the modules you need to import the functions that you have to use in the files . 
+ for libraries you can straight away type their names instead of typin the funtion that you need to use .
+ The syntax for this is called as default Syntax. 
+ Default export : When you just want to export one content from this file then you can use this .
+ A java-script file can have only one default export .
+ and this works without the curly brackets.
+
+NAMED-export:
+this is the usual export that we use with the curly braces.
+

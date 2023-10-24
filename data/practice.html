@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+var expect = function(val) {
+  let object1 ={
+     value:""};
+   let object2 ={
+       error:""};
+
+   function toBe(val2){
+       if(val === val2){
+           object1.value="true";
+           return object1;
+       }
+       else{
+       object2.error="Not Equal";
+       throw new Error (object2);
+       }
+
+   };
+
+   function notToBe(val3){
+       if (val !== val3){
+            object1.value="true";
+           return object1;
+       }
+          
+       else {
+             object2.error="Equal";
+             throw new Error( object2);
+       }
+         
+    };
+
+};
+ console.log(expect(2).val2(2));
+
+    </script>
+</body>
+</html>
+
+

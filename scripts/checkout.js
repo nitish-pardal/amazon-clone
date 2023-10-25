@@ -5,7 +5,6 @@ import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 import { deliveryOptions } from "../data/deliveryOptions.js";
 
-let cartSummaryHTML="";
 
 let cartQuantity = calculateCartQuantity();
 
@@ -24,13 +23,26 @@ cart.forEach((cartItem)=>{
     if(product.id === productId)
       matchingProduct =product;
   });
+  
 
+  const deliveryOptionId =cartItem.deliveryOptionId;
+  let deliveryoption;
+  deliveryOptions.forEach((option)=>{
+    if(option.id === deliveryOptionId)
+       deliveryoption = option ;
+  });
+
+  const today =dayjs();
+  const deliveryDate= today.add(deliveryOption.deliveryDays,'days');
+  const dateString= deliveryDate.format('dddd, MMMM D');
+
+  let cartSummaryHTML="";
 cartSummaryHTML +=
   `
   <div class="cart-item-container 
   js-cart-item-container-${matchingProduct.id}">
         <div class="delivery-date">
-          Delivery date: Tuesday, June 21
+         ${dateString}
         </div>
 
         <div class="cart-item-details-grid">
@@ -63,7 +75,6 @@ cartSummaryHTML +=
             </div>
             ${deliveryOptionsHTML(matchingProduct,cartItem)}
             
-            </div>
           </div>
       </div>
     </div>  
@@ -79,7 +90,7 @@ function deliveryOptionsHTML(matchingProduct,cartItem){
 
     const priceString = deliveryOption.priceCents === 0 
     ? "FREE"
-    : `${formatCurrency(deliveryOption.priceCents)}-`;
+    : `$${formatCurrency(deliveryOption.priceCents)}-`;
 
     const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 html +=

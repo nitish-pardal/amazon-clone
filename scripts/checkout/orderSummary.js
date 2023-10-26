@@ -1,17 +1,17 @@
-import {hello} from "https://unpkg.com/supersimpledev@1.0.1/hello.esm.js";
+
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { calculateCartQuantity, cart ,removeFromCart ,updateDeliveryOption} from "../../data/cart.js";
-import { products } from '../../data/products.js';
+import { products } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import { deliveryOptions } from "../../data/deliveryOptions.js";
 
-
-
-document.querySelector('.js-cart-quantity-header').innerHTML =`${cartQuantity} items`;
+let cartQuantity = calculateCartQuantity();
 
 export function renderOrderSummary(){
 
-  let cartQuantity = calculateCartQuantity();
+  
+console.log(cartQuantity);
+document.querySelector('.js-cart-quantity-header').innerHTML =`${cartQuantity} items`;
 
   let cartSummaryHTML="";
 
@@ -136,8 +136,9 @@ export function renderOrderSummary(){
     element.addEventListener('click',()=>{
       const {productId,deliveryOptionId}=element.dataset;
       updateDeliveryOption(productId ,deliveryOptionId);
-      renderOrderSummary
+      renderOrderSummary();
     });
   });
 
 }
+

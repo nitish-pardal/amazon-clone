@@ -4,6 +4,7 @@ import { calculateCartQuantity, cart ,removeFromCart ,updateDeliveryOption} from
 import { getProduct, products } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import { deliveryOptions , getDeliveryOption} from "../../data/deliveryOptions.js";
+import { renderPaymentSummary } from "./paymentSummary.js";
 
 let cartQuantity = calculateCartQuantity();
 
@@ -113,12 +114,15 @@ document.querySelector('.js-cart-quantity-header').innerHTML =`${cartQuantity} i
     link.addEventListener('click',()=>{
       const productId = link.dataset.productId;
       removeFromCart(productId);
+
+      
       const container = document.querySelector(`.js-cart-item-container-${productId}`);
       
       container.remove();
       cartQuantity = calculateCartQuantity();
       document.querySelector('.js-cart-quantity-header').innerHTML =`${cartQuantity} items`;
-    
+      
+      renderPaymentSummary();
     });
   });
     cartQuantity = calculateCartQuantity();
@@ -130,6 +134,7 @@ document.querySelector('.js-cart-quantity-header').innerHTML =`${cartQuantity} i
       const {productId,deliveryOptionId}=element.dataset;
       updateDeliveryOption(productId ,deliveryOptionId);
       renderOrderSummary();
+      renderPaymentSummary();
     });
   });
 

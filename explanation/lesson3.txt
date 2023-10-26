@@ -21,3 +21,21 @@ To use the modules along with the modules you need to import the functions that 
 NAMED-export:
 this is the usual export that we use with the curly braces.
 
+recursion : when a funciton calls itself ,
+
+MVC: Model-view-controller
+ the steps that we used in the renderOrderSummary is called MVC these include:
+  1. update the data
+  2. regenerate the HTML.
+
+In MVC we split our code into 3 parts:
+Model : saves and manages the data.
+  this is all the code that saves and manages the data.
+
+View: takes the data and displays on the page
+
+controller: runs some code when we interact with the veiw or page.
+
+Using the MVC makes shure that our code matches the data.
+this is a design pattern, many java script frameworks are based on MVC.
+
